@@ -7,4 +7,4 @@
 
 A collection of direction-aware UI components helps front-end functional developers to build awesome and eye-catching web application without dealing with CSS.
 
-<img src="public/da-ui-example.gif?raw=true" width="800px" alt="snowpack">
+<img src="http://g.recordit.co/5jkPh3tENh.gif?raw=true" width="800px" alt="snowpack">
