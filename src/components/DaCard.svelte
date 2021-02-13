@@ -6,6 +6,8 @@
   import { onMount } from "svelte";
   import ProgressiveImg from "./ProgressiveImg.svelte";
 
+  let cardRef: HTMLElement;
+  let containerRef: HTMLElement;
   /**
    * Title text (optional)
    */
@@ -33,7 +35,8 @@
    */
   export let rotateY = 10;
   /**
-   * Width (optional)
+   * Card width
+   * @required
    */
   export let width = "350px";
   /**
@@ -66,74 +69,71 @@
    */
   export let mediaAlt = "DaCard media image";
   /**
+   * Meida placeholder resolution
+   * @required
+   */
+  export let mediaPlaceholderRes = "350x350";
+  /**
    * Card layout styles
    */
   export let layout = "";
 
   onMount(() => {
-    const container = document.querySelector("article");
-    const card = container && container.querySelector("article");
-
-    if (container) {
-      color && container.style.setProperty("--da-card-color", color);
-      width && container.style.setProperty("--da-card-width", width);
-      perspective &&
-        container.style.setProperty("--da-card-perspective", perspective);
-      avatarBrdWidth &&
-        container.style.setProperty(
-          "--da-card-avatar-brd-width",
-          avatarBrdWidth
-        );
-      avatarBrdColor &&
-        container.style.setProperty(
-          "--da-card-avatar-brd-color",
-          avatarBrdColor
-        );
-    }
-
-    if (card) {
-      const { x, y, width, height } = card.getBoundingClientRect();
-
+    const handleMouseMove = (e: MouseEvent) => {
+      const { x, y, width, height } = cardRef.getBoundingClientRect();
       const cx = x + width / 2;
       const cy = y + height / 2;
+      const dx = (cx - e.pageX) / (width / 2);
+      const dy = (cy - e.pageY) / (height / 2);
 
-      // TODO: Storybook doc parsing error for TS
-      // @ts-ignore
-      const handleMouseMove = (e) => {
-        const dx = (cx - e.pageX) / (width / 2);
-        const dy = (cy - e.pageY) / (height / 2);
+      cardRef.style.setProperty("--da-card-rotateY", `${rotateY * dx}deg`);
+      cardRef.style.setProperty("--da-card-rotateX", `${rotateX * dy * -1}deg`);
+    };
 
-        card.style.setProperty("--da-card-rotateY", `${rotateY * dx}deg`);
-        card.style.setProperty("--da-card-rotateX", `${rotateX * dy * -1}deg`);
-      };
+    // card css variables
+    cardRef.style.setProperty("--da-card-bg-color", bgColor);
 
-      card.style.setProperty("--da-card-bg-color", bgColor);
+    // container css variables
+    color && containerRef.style.setProperty("--da-card-color", color);
+    width && containerRef.style.setProperty("--da-card-width", width);
+    perspective &&
+      containerRef.style.setProperty("--da-card-perspective", perspective);
+    avatarBrdWidth &&
+      containerRef.style.setProperty(
+        "--da-card-avatar-brd-width",
+        avatarBrdWidth
+      );
+    avatarBrdColor &&
+      containerRef.style.setProperty(
+        "--da-card-avatar-brd-color",
+        avatarBrdColor
+      );
 
-      card.addEventListener("mousemove", handleMouseMove);
+    cardRef.addEventListener("mousemove", handleMouseMove);
 
-      return () => {
-        card.removeEventListener("mousemove", handleMouseMove);
-      };
-    }
+    return () => {
+      cardRef.removeEventListener("mousemove", handleMouseMove);
+    };
   });
 </script>
 
-<article {...$$restProps} class="da-card-container">
+<article {...$$restProps} class="da-card-container" bind:this={containerRef}>
   <article
     class="da-card"
-    class:top-space={!mediaSrc}
+    bind:this={cardRef}
     class:hide-overflow={mediaSrc}
     class:figure={layout === "figure"}
+    class:top-space={!mediaSrc || (avatarSrc && layout === "figure")}
   >
     {#if mediaSrc}
       <ProgressiveImg
         alt={mediaAlt}
         src={mediaSrc}
         class="da-card-media"
-        resolution="350x220"
+        resolution={mediaPlaceholderRes}
       />
     {/if}
-    {#if avatarSrc && layout !== "figure"}
+    {#if avatarSrc}
       <figure class="da-card-avatar">
         <ProgressiveImg alt={avatarAlt} src={avatarSrc} resolution="80x80" />
       </figure>
@@ -172,7 +172,10 @@
     @apply overflow-hidden;
   }
 
-  .da-card.top-space {
+  .da-card.top-space.figure {
+    @apply mt-12;
+  }
+  .da-card.top-space:not(.figure) {
     @apply mt-16;
   }
 
@@ -185,7 +188,11 @@
   }
 
   .da-card-avatar {
-    @apply w-20 h-20 rounded-full -mt-10 relative mx-auto;
+    @apply w-20 h-20 rounded-full -mt-10 mx-auto relative;
+  }
+
+  .da-card.figure .da-card-avatar {
+    @apply absolute;
   }
 
   .da-card-avatar:before {

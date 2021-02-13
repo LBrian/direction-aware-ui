@@ -85,6 +85,7 @@ Media.args = {
   avatarBrdColor: '#eee',
   title: 'Da-Card',
   avatarAlt: "Da-Card",
+  mediaPlaceholderRes: "350x233",
   mediaSrc: "https://i.picsum.photos/id/119/3264/2176.jpg?hmac=PYRYBOGQhlUm6wS94EkpN8dTIC7-2GniC3pqOt6CpNU",
   avatarSrc: 'https://brianypliu.com/assets/images/avatar.png',
   description: 'Card layouts can vary to support the types of content they contain. The following elements are commonly found among that variety.'
@@ -102,6 +103,25 @@ FigureLayout.args = {
   avatarBrdWidth: '1rem',
   avatarBrdColor: '#eee',
   title: 'Da-Card',
+  mediaPlaceholderRes: "600x400",
+  mediaSrc: "https://i.picsum.photos/id/119/3264/2176.jpg?hmac=PYRYBOGQhlUm6wS94EkpN8dTIC7-2GniC3pqOt6CpNU",
+  description: 'Card layouts can vary to support the types of content they contain. The following elements are commonly found among that variety.'
+};
+
+export const FigureLayoutAvatar = Template.bind({});
+FigureLayoutAvatar.args = {
+  rotateX: 10,
+  rotateY: 10,
+  color: '#fff',
+  width: '600px',
+  bgColor: '#fff',
+  layout: "figure",
+  perspective: '600px',
+  avatarBrdWidth: '1rem',
+  avatarBrdColor: '#eee',
+  title: 'Da-Card',
+  mediaPlaceholderRes: "600x400",
+  avatarSrc: 'https://brianypliu.com/assets/images/avatar.png',
   mediaSrc: "https://i.picsum.photos/id/119/3264/2176.jpg?hmac=PYRYBOGQhlUm6wS94EkpN8dTIC7-2GniC3pqOt6CpNU",
   description: 'Card layouts can vary to support the types of content they contain. The following elements are commonly found among that variety.'
 };
