@@ -56,9 +56,7 @@
   /**
    * Avatar image src (optional)
    */
-  export let avatarSrc = `https://via.placeholder.com/80?text=${
-    title ? title.slice(0, 1) : "DA"
-  }`;
+  export let avatarSrc = "";
   /**
    * Media image src (optional)
    */
@@ -67,6 +65,10 @@
    * Media img alt (optional)
    */
   export let mediaAlt = "DaCard media image";
+  /**
+   * Card layout styles
+   */
+  export let layout = "";
 
   onMount(() => {
     const container = document.querySelector("article");
@@ -105,7 +107,7 @@
         card.style.setProperty("--da-card-rotateX", `${rotateX * dy * -1}deg`);
       };
 
-      bgColor && card.style.setProperty("--da-card-bg-color", bgColor);
+      card.style.setProperty("--da-card-bg-color", bgColor);
 
       card.addEventListener("mousemove", handleMouseMove);
 
@@ -121,6 +123,7 @@
     class="da-card"
     class:top-space={!mediaSrc}
     class:hide-overflow={mediaSrc}
+    class:figure={layout === "figure"}
   >
     {#if mediaSrc}
       <ProgressiveImg
@@ -130,10 +133,12 @@
         resolution="350x220"
       />
     {/if}
-    <figure class="da-card-avatar">
-      <ProgressiveImg alt={avatarAlt} src={avatarSrc} resolution="80x80" />
-    </figure>
-    <div>
+    {#if avatarSrc && layout !== "figure"}
+      <figure class="da-card-avatar">
+        <ProgressiveImg alt={avatarAlt} src={avatarSrc} resolution="80x80" />
+      </figure>
+    {/if}
+    <div class="da-card-body" class:figure={layout === "figure"}>
       {#if title}
         <h1 class="da-card-title">{title}</h1>
       {/if}
@@ -154,12 +159,16 @@
   }
 
   .da-card {
-    @apply flex flex-col items-center leading-normal rounded-xl mx-2 mb-2 duration-200 transition-transform ease-out shadow-2xl;
+    @apply flex flex-col items-center leading-normal rounded-xl mx-2 mb-2 duration-200 transition-transform ease-out shadow-2xl relative;
     background-color: var(--da-card-bg-color);
     width: var(--da-card-width);
   }
 
-  .da-card.hide-overflow {
+  .da-card.figure {
+    @apply ml-20;
+  }
+
+  .da-card.hide-overflow:not(.figure) {
     @apply overflow-hidden;
   }
 
@@ -172,12 +181,11 @@
   }
 
   .da-card-media {
-    @apply w-full;
-    min-height: 180px;
+    min-height: 220px;
   }
 
   .da-card-avatar {
-    @apply w-20 h-20 rounded-full -mt-10 relative;
+    @apply w-20 h-20 rounded-full -mt-10 relative mx-auto;
   }
 
   .da-card-avatar:before {
@@ -192,8 +200,17 @@
     border-radius: inherit;
   }
 
-  .da-card div {
-    @apply text-center m-8;
+  .da-card-body:not(.figure) {
+    @apply text-center mx-8;
+  }
+
+  .da-card-body.figure {
+    @apply absolute bottom-0 -left-20 w-2/3;
+  }
+
+  .da-card-body.figure .da-card-title {
+    @apply text-4xl;
+    text-shadow: 1px 1px 4px #999;
   }
 
   .da-card-title {
@@ -202,5 +219,8 @@
 
   .da-card-description {
     @apply relative mt-4 mb-8;
+  }
+  .da-card-body.figure .da-card-description {
+    text-shadow: 1px 1px 1px #999;
   }
 </style>

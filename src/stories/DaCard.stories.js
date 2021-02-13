@@ -17,7 +17,20 @@ export default {
     avatarBrdColor: { control: 'text' },
     avatarAlt: { control: 'text' },
     mediaSrc: { control: 'text' },
-    mediaAlt: { control: 'text' }
+    mediaAlt: { control: 'text' },
+    layout: {control: {
+      type: 'select',
+      options: [
+        "figure"
+      ],
+    }}
+  },
+  parameters: {
+    docs: {
+      description: {
+        component: 'DaCard provides direction-aware feature on top of the general Card component design pattern.',
+      },
+    },
   }
 };
 
@@ -37,9 +50,9 @@ Plain.args = {
   avatarBrdWidth: '1rem',
   avatarBrdColor: '#eee',
   mediaAlt: "Media image",
-  title: 'Title goes here',
+  title: 'Title',
   avatarAlt: "DaCard avatar image",
-  avatarSrc: 'https://via.placeholder.com/80',
+  avatarSrc: 'https://via.placeholder.com/80?text=Avatar',
   mediaSrc: "https://via.placeholder.com/350x180?text=Media+image",
   description: 'Supporting text include text like an article summary or a restaurant description.'
 };
@@ -54,9 +67,9 @@ Avatar.args = {
   perspective: '600px',
   avatarBrdWidth: '1rem',
   avatarBrdColor: '#eee',
-  title: 'Believe in grip',
-  avatarAlt: "Believe in grip",
-  avatarSrc: 'https://brianypliu.com/assets/icons/manifest-icon-512.png',
+  title: 'Da-Card',
+  avatarAlt: "Da-Card",
+  avatarSrc: 'https://brianypliu.com/assets/images/avatar.png',
   description: 'Card layouts can vary to support the types of content they contain. The following elements are commonly found among that variety.'
 };
 
@@ -70,9 +83,25 @@ Media.args = {
   perspective: '600px',
   avatarBrdWidth: '1rem',
   avatarBrdColor: '#eee',
-  title: 'Believe in grip',
-  avatarAlt: "Believe in grip",
-  mediaSrc: "https://i.picsum.photos/id/1051/4928/3264.jpg?hmac=-O25O5Q9z7LI8gDrUkTUmDJir4F9cp1RadCwShIDGms",
-  avatarSrc: 'https://brianypliu.com/assets/icons/manifest-icon-512.png',
+  title: 'Da-Card',
+  avatarAlt: "Da-Card",
+  mediaSrc: "https://i.picsum.photos/id/119/3264/2176.jpg?hmac=PYRYBOGQhlUm6wS94EkpN8dTIC7-2GniC3pqOt6CpNU",
+  avatarSrc: 'https://brianypliu.com/assets/images/avatar.png',
+  description: 'Card layouts can vary to support the types of content they contain. The following elements are commonly found among that variety.'
+};
+
+export const FigureLayout = Template.bind({});
+FigureLayout.args = {
+  rotateX: 10,
+  rotateY: 10,
+  color: '#fff',
+  width: '600px',
+  bgColor: '#fff',
+  layout: "figure",
+  perspective: '600px',
+  avatarBrdWidth: '1rem',
+  avatarBrdColor: '#eee',
+  title: 'Da-Card',
+  mediaSrc: "https://i.picsum.photos/id/119/3264/2176.jpg?hmac=PYRYBOGQhlUm6wS94EkpN8dTIC7-2GniC3pqOt6CpNU",
   description: 'Card layouts can vary to support the types of content they contain. The following elements are commonly found among that variety.'
 };

@@ -22,9 +22,12 @@
 
   onMount(() => {
     const dataSrc = element.getAttribute("src");
+    const [width, height] = resolution.split("x");
 
     element.style.setProperty("--fast-img-blur-radius", blurRadius);
     element.style.setProperty("--fast-img-blur-duration", duration);
+    element.style.setProperty("--fast-img-placeholder-height", `${height}px`);
+    element.style.setProperty("--fast-img-placeholder-width", `${width}px`);
 
     if (dataSrc) {
       element.setAttribute("data-src", dataSrc);
@@ -47,6 +50,8 @@
 <!-- svelte-ignore a11y-missing-attribute -->
 <style type="postcss">
   img[data-src] {
+    height: var(--fast-img-placeholder-height);
+    width: var(--fast-img-placeholder-width);
     filter: blur(var(--fast-img-blur-radius));
   }
 
