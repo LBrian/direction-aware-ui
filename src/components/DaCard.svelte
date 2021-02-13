@@ -4,6 +4,7 @@
    * @component
    */
   import { onMount } from "svelte";
+  import ProgressiveImg from "./ProgressiveImg.svelte";
 
   /**
    * Title text (optional)
@@ -118,14 +119,19 @@
 <article {...$$restProps} class="da-card-container">
   <article
     class="da-card"
-    class:hide-overflow={mediaSrc}
     class:top-space={!mediaSrc}
+    class:hide-overflow={mediaSrc}
   >
     {#if mediaSrc}
-      <img loading="lazy" src={mediaSrc} alt={mediaAlt} class="da-card-media" />
+      <ProgressiveImg
+        alt={mediaAlt}
+        src={mediaSrc}
+        class="da-card-media"
+        resolution="350x220"
+      />
     {/if}
     <figure class="da-card-avatar">
-      <img loading="lazy" src={avatarSrc} alt={avatarAlt} />
+      <ProgressiveImg alt={avatarAlt} src={avatarSrc} resolution="80x80" />
     </figure>
     <div>
       {#if title}
@@ -182,8 +188,7 @@
       var(--da-card-avatar-brd-color);
   }
 
-  .da-card-avatar img {
-    @apply w-full h-full object-cover;
+  .da-card-avatar > :global(img) {
     border-radius: inherit;
   }
 
