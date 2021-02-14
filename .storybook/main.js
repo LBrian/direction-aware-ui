@@ -1,20 +1,10 @@
-const sveltePreprocess = require('svelte-preprocess');
+const svelteConfig = require('../svelte.config');
 
 module.exports = {
   webpackFinal: async (config) => {
     const svelteLoader = config.module.rules.find( (r) => r.loader && r.loader.includes('svelte-loader'))
 
-    svelteLoader.options.preprocess = sveltePreprocess({
-      defaults: {
-        script: 'typescript',
-      },
-      postcss: {
-        plugins: [
-          require("tailwindcss")(),
-          require("autoprefixer")()
-        ]
-      }
-    })
+    svelteLoader.options.preprocess = svelteConfig.preprocess;
 
     return config
   },
