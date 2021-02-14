@@ -1,4 +1,4 @@
-import DaCard from '../components/DaCard.svelte';
+import DaCard from '../components/DaCard';
 
 export default {
   title: 'direction-aware-ui/DaCard',

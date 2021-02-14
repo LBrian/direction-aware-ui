@@ -4,7 +4,7 @@
    * @component
    */
   import { onMount } from "svelte";
-  import ProgressiveImg from "./ProgressiveImg.svelte";
+  import ProgressiveImg from "../ProgressiveImg.svelte";
 
   let cardRef: HTMLElement;
   let containerRef: HTMLElement;
