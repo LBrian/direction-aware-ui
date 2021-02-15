@@ -1,13 +1,7 @@
-const svelteConfig = require('../svelte.config');
+const svelteOptions = require('../svelte.config');
 
 module.exports = {
-  webpackFinal: async (config) => {
-    const svelteLoader = config.module.rules.find( (r) => r.loader && r.loader.includes('svelte-loader'))
-
-    svelteLoader.options.preprocess = svelteConfig.preprocess;
-
-    return config
-  },
+  svelteOptions,
   stories: [
     "../src/**/*.stories.mdx",
     "../src/**/*.stories.@(js|jsx|ts|tsx)"
