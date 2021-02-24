@@ -1,3 +1,5 @@
+<svelte:options tag="da-card" />
+
 <script lang="ts">
   /**
    * DaCard
@@ -150,6 +152,7 @@
     </div>
   </article>
 </article>
+<slot />
 
 <style type="postcss">
   .da-card-container {

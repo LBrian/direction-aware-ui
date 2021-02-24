@@ -1,4 +1,4 @@
-import DaCard from '../components/DaCard';
+import DaCard from '@da-ui/dacard';
 
 export default {
   title: 'direction-aware-ui/DaCard',

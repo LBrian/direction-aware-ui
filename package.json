@@ -1,13 +1,17 @@
 {
   "name": "direction-aware-ui",
-  "homepage": "https://github.com/LBrian/direction-aware-ui",
+  "homepage": "https://da-ui.brianypliu.com",
   "description": "A collection of direction-aware UI components built from Svelte for functional programmers",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "license": "MIT",
   "author": {
     "name": "Brian YP Liu",
     "email": "ralphbliu@gmail.com",
     "url": "https://brianypliu.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LBrian/direction-aware-ui.git"
   },
   "keywords": [
     "ui",
@@ -20,9 +24,13 @@
     "direction-aware",
     "direction-aware-ui"
   ],
+  "workspaces": [
+    "src/packages/*"
+  ],
   "scripts": {
     "start": "snowpack dev",
     "build": "snowpack build",
+    "build:packages": "rollup -c",
     "test": "web-test-runner \"src/**/*.test.ts\"",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
@@ -32,6 +40,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.13",
+    "@rollup/plugin-node-resolve": "^11.1.1",
     "@snowpack/plugin-dotenv": "^2.0.5",
     "@snowpack/plugin-svelte": "^3.5.2",
     "@snowpack/plugin-typescript": "^1.2.1",
@@ -48,6 +57,9 @@
     "autoprefixer": "^10.2.4",
     "babel-loader": "^8.2.2",
     "chai": "^4.2.0",
+    "lerna": "^3.22.1",
+    "rollup": "^2.38.5",
+    "rollup-plugin-svelte": "^7.1.0",
     "snowpack": "^3.0.11",
     "svelte": "^3.32.2",
     "svelte-loader": "^3.0.0",

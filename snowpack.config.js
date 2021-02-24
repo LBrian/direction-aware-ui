@@ -4,6 +4,7 @@ module.exports = {
     public: {url: '/', static: true},
     src: {url: '/dist'},
   },
+  exclude: ['**/node_modules/**/*', '**/stories/**/*'],
   plugins: [
     '@snowpack/plugin-svelte',
     '@snowpack/plugin-dotenv',
@@ -15,9 +16,10 @@ module.exports = {
   ],
   optimize: {
     /* Example: Bundle your final build: */
-    // bundle: true,
-    // minify: true,
-    // target: 'es2018'
+    bundle: true,
+    minify: true,
+    treeshake: true,
+    target: 'es2018'
   },
   packageOptions: {
     /* ... */

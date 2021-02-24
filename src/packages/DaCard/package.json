@@ -1,0 +1,24 @@
+{
+  "name": "@da-ui/dacard",
+  "version": "0.0.0",
+  "description": "Direction-aware UI card component",
+  "svelte": "./index.svelte",
+  "files": [
+    "./index.svelte"
+  ],
+  "homepage": "https://da-ui.brianypliu.com/?path=/story/direction-aware-ui-dacard--plain",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LBrian/direction-aware-ui.git"
+  },
+  "author": {
+    "name": "Brian YP Liu",
+    "email": "ralphbliu@gmail.com",
+    "url": "https://brianypliu.com/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LBrian/direction-aware-ui/issues"
+  }
+}

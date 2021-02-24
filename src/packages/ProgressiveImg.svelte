@@ -1,3 +1,5 @@
+<svelte:options tag="progressive-img" />
+
 <script lang="ts">
   /**
    * ProgressiveImg
@@ -46,6 +48,7 @@
 
 <!-- svelte-ignore a11y-missing-attribute -->
 <img loading="lazy" bind:this={element} {...$$restProps} />
+<slot />
 
 <!-- svelte-ignore a11y-missing-attribute -->
 <style type="postcss">
