@@ -8,13 +8,7 @@ export default {
     format: 'esm'
   },
   plugins: [
-    svelte({
-      preprocess: require('./svelte.config').preprocess,
-      emitCss: false,
-      compilerOptions: {
-        customElement: true
-      }
-    }),
+    svelte(require('./svelte.config')),
     resolve({ browser: true })
   ]
 }

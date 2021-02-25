@@ -30,7 +30,8 @@
   "scripts": {
     "start": "snowpack dev",
     "build": "snowpack build",
-    "build:packages": "rollup -c",
+    "build:packages": "NODE_ENV=production rollup -c",
+    "build:all": "npm run build && npm run build:packages",
     "test": "web-test-runner \"src/**/*.test.ts\"",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
