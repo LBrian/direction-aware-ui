@@ -2,9 +2,10 @@
   "name": "@da-ui/dacard",
   "version": "0.0.0",
   "description": "Direction-aware UI card component",
+  "main": "index.js",
   "svelte": "./index.svelte",
   "files": [
-    "./index.svelte"
+    "index.d.ts"
   ],
   "homepage": "https://da-ui.brianypliu.com/?path=/story/direction-aware-ui-dacard--plain",
   "scripts": {},
@@ -20,5 +21,6 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/LBrian/direction-aware-ui/issues"
-  }
+  },
+  "types": "index.d.ts"
 }
