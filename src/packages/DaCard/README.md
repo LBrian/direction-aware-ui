@@ -7,7 +7,7 @@
 
 A collection of direction-aware UI components helps front-end functional developers to build awesome and eye-catching web application without dealing with CSS.
 
-<img src="https://github.com/LBrian/direction-aware-ui/blob/main/public/da-card?raw=true" width="800px" alt="snowpack">
+<img src="https://github.com/LBrian/direction-aware-ui/blob/main/public/da-card.gif?raw=true" width="800px" alt="snowpack">
 
 ## Playground & Doc
 
