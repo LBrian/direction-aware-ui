@@ -5,7 +5,8 @@
   "main": "index.js",
   "svelte": "./index.svelte",
   "files": [
-    "index.d.ts"
+    "index.d.ts",
+    "README.md"
   ],
   "homepage": "https://da-ui.brianypliu.com/?path=/story/direction-aware-ui-dacard--plain",
   "scripts": {},

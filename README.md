@@ -5,6 +5,8 @@
 ![Typescript](https://img.shields.io/badge/typescript-4.1.3-blue)
 ![snowpack](https://img.shields.io/badge/snowpack-3.0.11-blue)
 
-A collection of direction-aware UI components helps front-end functional developers to build awesome and eye-catching web application without dealing with CSS.
+A collection of direction-aware UI components enables JS functional developers to build awesome web application without dealing with CSS.
 
-<img src="https://github.com/LBrian/direction-aware-ui/blob/main/public/da-ui-example.gif?raw=true" width="800px" alt="snowpack">
+## Storybook
+
+https://da-ui.brianypliu.com/

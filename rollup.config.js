@@ -21,7 +21,8 @@ function getConfig(target) {
       terser(),
       copy({
         targets: [
-          { src: `${target}index.d.ts`, dest: targetDir }
+          { src: `${target}index.d.ts`, dest: targetDir },
+          { src: `${target}README.md`, dest: targetDir }
         ]
       })
     ]
