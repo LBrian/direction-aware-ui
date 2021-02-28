@@ -10,6 +10,11 @@
   let element: HTMLImageElement;
 
   /**
+   * img src
+   * Declaration takes out from $$restProps in order to manipulate it
+   */
+  export let src: string | undefined;
+  /**
    * Placeholder resolution
    */
   export let resolution = "80x80";
@@ -23,7 +28,6 @@
   export let blurRadius = "0.4em";
 
   onMount(() => {
-    const dataSrc = element.getAttribute("src");
     const [width, height] = resolution.split("x");
 
     element.style.setProperty("--fast-img-blur-radius", blurRadius);
@@ -31,16 +35,18 @@
     element.style.setProperty("--fast-img-placeholder-height", `${height}px`);
     element.style.setProperty("--fast-img-placeholder-width", `${width}px`);
 
-    if (dataSrc) {
-      element.setAttribute("data-src", dataSrc);
+    if (src) {
+      element.setAttribute("data-src", src);
       element.setAttribute(
         "src",
         `https://via.placeholder.com/${resolution}?text=FastImg`
       );
       element.onload = () => {
-        element.setAttribute("src", dataSrc);
-        element.removeAttribute("data-src");
-        element.onload = null;
+        if (src) {
+          element.setAttribute("src", src);
+          element.removeAttribute("data-src");
+          element.onload = null;
+        }
       };
     }
   });
