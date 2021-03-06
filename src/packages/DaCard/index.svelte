@@ -85,8 +85,9 @@
       const { x, y, width, height } = cardRef.getBoundingClientRect();
       const cx = x + width / 2;
       const cy = y + height / 2;
-      const dx = (cx - e.pageX) / (width / 2);
-      const dy = (cy - e.pageY) / (height / 2);
+      // Deduct scroll position to get relative cursor coordinate of viewport
+      const dx = (cx - (e.pageX - window.scrollX)) / (width / 2);
+      const dy = (cy - (e.pageY - window.scrollY)) / (height / 2);
 
       cardRef.style.setProperty("--da-card-rotateY", `${rotateY * dx}deg`);
       cardRef.style.setProperty("--da-card-rotateX", `${rotateX * dy * -1}deg`);

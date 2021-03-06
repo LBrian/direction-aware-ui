@@ -16,7 +16,12 @@ function getConfig(target) {
       format: 'esm'
     },
     plugins: [
-      svelte(require('./svelte.config')),
+      svelte({
+        ...require('./svelte.config'),
+        compilerOptions: {
+          customElement: true
+        }
+      }),
       resolve({ browser: true }),
       terser(),
       copy({
