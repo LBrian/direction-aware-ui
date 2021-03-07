@@ -22,15 +22,17 @@ declare namespace global.JSX {
     "da-card": DaCard;
   }
 }
-
-declare namespace preact.JSX {
+declare namespace svelte.JSX {
   interface IntrinsicElements {
     "da-card": DaCard;
   }
 }
 
-declare namespace svelte.JSX {
-  interface IntrinsicElements {
-    "da-card": DaCard;
+//@ts-ignore
+declare module "preact" {
+  namespace JSX {
+    interface IntrinsicElements {
+      "da-card": DaCard;
+    }
   }
 }
