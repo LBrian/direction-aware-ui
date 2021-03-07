@@ -2,7 +2,7 @@
   "name": "direction-aware-ui",
   "homepage": "https://da-ui.brianypliu.com",
   "description": "A collection of direction-aware UI components built from Svelte for functional programmers",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "author": {
     "name": "Brian YP Liu",
