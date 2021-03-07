@@ -17,6 +17,11 @@ interface DaCard {
   layout?: "figure";
 }
 
+declare global {
+  interface HTMLElementTagNameMap {
+    "da-card": DaCard;
+  }
+}
 declare namespace global.JSX {
   interface IntrinsicElements {
     "da-card": DaCard;
