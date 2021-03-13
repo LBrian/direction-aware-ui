@@ -22,9 +22,11 @@ declare global {
     "da-card": DaCard;
   }
 }
-declare namespace global.JSX {
-  interface IntrinsicElements {
-    "da-card": DaCard;
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      "da-card": DaCard;
+    }
   }
 }
 declare namespace svelte.JSX {
