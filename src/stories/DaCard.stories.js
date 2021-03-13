@@ -1,7 +1,7 @@
-import DaCard from '@da-ui/dacard';
+import DaCard from '../packages/DaCard';
 
 export default {
-  title: 'direction-aware-ui/DaCard',
+  title: 'DaCard',
   component: DaCard,
   argTypes: {
     title: { control: 'text' },
