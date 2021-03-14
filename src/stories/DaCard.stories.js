@@ -29,7 +29,7 @@ export default {
     docs: {
       description: {
         component:
-          'DaCard provides direction-aware feature on top of the general Card component design pattern.'
+          '`DaCard` provides direction-aware feature on top of the general Card component design pattern. Assign `children` to `DaCard` to have customized content.'
       }
     }
   }
