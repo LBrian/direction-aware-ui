@@ -33,7 +33,7 @@ function getConfig(target) {
         }
       }),
       resolve({ browser: true }),
-      // terser(),
+      terser(),
       copy({
         targets: [
           { src: `${target}index.d.ts`, dest: targetDir },
