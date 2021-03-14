@@ -5,7 +5,7 @@
    * ProgressiveImg
    * @component
    */
-  import { onMount } from "svelte";
+  import { onMount } from 'svelte';
 
   let element: HTMLImageElement;
 
@@ -17,34 +17,31 @@
   /**
    * Placeholder resolution
    */
-  export let resolution = "80x80";
+  export let resolution = '80x80';
   /**
    * Filter blur transition duration (CSS)
    */
-  export let duration = "0.5s";
+  export let duration = '0.5s';
   /**
    * Filter blur radius (CSS)
    */
-  export let blurRadius = "0.4em";
+  export let blurRadius = '0.4em';
 
   onMount(() => {
-    const [width, height] = resolution.split("x");
+    const [width, height] = resolution.split('x');
 
-    element.style.setProperty("--fast-img-blur-radius", blurRadius);
-    element.style.setProperty("--fast-img-blur-duration", duration);
-    element.style.setProperty("--fast-img-placeholder-height", `${height}px`);
-    element.style.setProperty("--fast-img-placeholder-width", `${width}px`);
+    element.style.setProperty('--fast-img-blur-radius', blurRadius);
+    element.style.setProperty('--fast-img-blur-duration', duration);
+    element.style.setProperty('--fast-img-placeholder-height', `${height}px`);
+    element.style.setProperty('--fast-img-placeholder-width', `${width}px`);
 
     if (src) {
-      element.setAttribute("data-src", src);
-      element.setAttribute(
-        "src",
-        `https://via.placeholder.com/${resolution}?text=FastImg`
-      );
+      element.setAttribute('data-src', src);
+      element.setAttribute('src', `https://via.placeholder.com/${resolution}?text=FastImg`);
       element.onload = () => {
         if (src) {
-          element.setAttribute("src", src);
-          element.removeAttribute("data-src");
+          element.setAttribute('src', src);
+          element.removeAttribute('data-src');
           element.onload = null;
         }
       };
@@ -54,7 +51,6 @@
 
 <!-- svelte-ignore a11y-missing-attribute -->
 <img loading="lazy" bind:this={element} {...$$restProps} />
-<slot />
 
 <!-- svelte-ignore a11y-missing-attribute -->
 <style type="postcss">

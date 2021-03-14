@@ -5,28 +5,28 @@
    * DaCard
    * @component
    */
-  import { onMount } from "svelte";
-  import "../ProgressiveImg.svelte";
+  import { onMount } from 'svelte';
+  import ProgressiveImg from '../ProgressiveImg.svelte';
 
   let cardRef: HTMLElement;
   let containerRef: HTMLElement;
   /**
    * Title text (optional)
    */
-  export let title = "";
+  export let title = '';
   /**
    * Description text (optional)
    */
-  export let description = "";
+  export let description = '';
 
   /**
    * Text color (optional)
    */
-  export let color = "inherit";
+  export let color = 'inherit';
   /**
    * Background color (optional)
    */
-  export let bgColor = "#fff";
+  export let bgColor = '#fff';
 
   /**
    * Vertical rotation degree based on cursor position (optional)
@@ -40,45 +40,45 @@
    * Card width
    * @required
    */
-  export let width = "350px";
+  export let width = '350px';
   /**
    * CSS perspective of Card (optional), see https://developer.mozilla.org/en-US/docs/Web/CSS/perspective
    */
-  export let perspective = "600px";
+  export let perspective = '600px';
 
   /**
    * Avatar image border width (optional)
    */
-  export let avatarBrdWidth = "1rem";
+  export let avatarBrdWidth = '1rem';
   /**
    * Avatar image border color (optional)
    */
-  export let avatarBrdColor = "#eee";
+  export let avatarBrdColor = '#eee';
   /**
    * Avatar img alt (optional)
    */
-  export let avatarAlt = "DaCard avatar image";
+  export let avatarAlt = 'DaCard avatar image';
   /**
    * Avatar image src (optional)
    */
-  export let avatarSrc = "";
+  export let avatarSrc = '';
   /**
    * Media image src (optional)
    */
-  export let mediaSrc = "";
+  export let mediaSrc = '';
   /**
    * Media img alt (optional)
    */
-  export let mediaAlt = "DaCard media image";
+  export let mediaAlt = 'DaCard media image';
   /**
    * Meida placeholder resolution
    * @required
    */
-  export let mediaPlaceholderRes = "350x350";
+  export let mediaPlaceholderRes = '350x350';
   /**
    * Card layout styles
    */
-  export let layout = "";
+  export let layout = '';
 
   onMount(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -89,33 +89,24 @@
       const dx = (cx - (e.pageX - window.scrollX)) / (width / 2);
       const dy = (cy - (e.pageY - window.scrollY)) / (height / 2);
 
-      cardRef.style.setProperty("--da-card-rotateY", `${rotateY * dx}deg`);
-      cardRef.style.setProperty("--da-card-rotateX", `${rotateX * dy * -1}deg`);
+      cardRef.style.setProperty('--da-card-rotateY', `${rotateY * dx}deg`);
+      cardRef.style.setProperty('--da-card-rotateX', `${rotateX * dy * -1}deg`);
     };
 
     // card css variables
-    cardRef.style.setProperty("--da-card-bg-color", bgColor);
+    cardRef.style.setProperty('--da-card-bg-color', bgColor);
 
     // container css variables
-    color && containerRef.style.setProperty("--da-card-color", color);
-    width && containerRef.style.setProperty("--da-card-width", width);
-    perspective &&
-      containerRef.style.setProperty("--da-card-perspective", perspective);
-    avatarBrdWidth &&
-      containerRef.style.setProperty(
-        "--da-card-avatar-brd-width",
-        avatarBrdWidth
-      );
-    avatarBrdColor &&
-      containerRef.style.setProperty(
-        "--da-card-avatar-brd-color",
-        avatarBrdColor
-      );
+    color && containerRef.style.setProperty('--da-card-color', color);
+    width && containerRef.style.setProperty('--da-card-width', width);
+    perspective && containerRef.style.setProperty('--da-card-perspective', perspective);
+    avatarBrdWidth && containerRef.style.setProperty('--da-card-avatar-brd-width', avatarBrdWidth);
+    avatarBrdColor && containerRef.style.setProperty('--da-card-avatar-brd-color', avatarBrdColor);
 
-    cardRef.addEventListener("mousemove", handleMouseMove);
+    cardRef.addEventListener('mousemove', handleMouseMove);
 
     return () => {
-      cardRef.removeEventListener("mousemove", handleMouseMove);
+      cardRef.removeEventListener('mousemove', handleMouseMove);
     };
   });
 </script>
@@ -125,11 +116,11 @@
     class="da-card"
     bind:this={cardRef}
     class:hide-overflow={mediaSrc}
-    class:figure={layout === "figure"}
-    class:top-space={!mediaSrc || (avatarSrc && layout === "figure")}
+    class:figure={layout === 'figure'}
+    class:top-space={!mediaSrc || (avatarSrc && layout === 'figure')}
   >
     {#if mediaSrc}
-      <progressive-img
+      <ProgressiveImg
         alt={mediaAlt}
         src={mediaSrc}
         class="da-card-media"
@@ -138,22 +129,23 @@
     {/if}
     {#if avatarSrc}
       <figure class="da-card-avatar">
-        <progressive-img alt={avatarAlt} src={avatarSrc} resolution="80x80" />
+        <ProgressiveImg alt={avatarAlt} src={avatarSrc} resolution="80x80" />
       </figure>
     {/if}
-    <div class="da-card-body" class:figure={layout === "figure"}>
-      {#if title}
-        <h1 class="da-card-title">{title}</h1>
-      {/if}
-      {#if description}
-        <p class="da-card-description">
-          {description}
-        </p>
-      {/if}
-    </div>
+    <slot>
+      <div class="da-card-body" class:figure={layout === 'figure'}>
+        {#if title}
+          <h1 class="da-card-title">{title}</h1>
+        {/if}
+        {#if description}
+          <p class="da-card-description">
+            {description}
+          </p>
+        {/if}
+      </div>
+    </slot>
   </article>
 </article>
-<slot />
 
 <style type="postcss">
   .da-card-container {
@@ -201,10 +193,9 @@
 
   .da-card-avatar:after {
     @apply absolute top-1/2 left-1/2 w-full h-full transform -translate-x-1/2 -translate-y-1/2 shadow;
-    content: "";
+    content: '';
     border-radius: inherit;
-    border: var(--da-card-avatar-brd-width) solid
-      var(--da-card-avatar-brd-color);
+    border: var(--da-card-avatar-brd-width) solid var(--da-card-avatar-brd-color);
   }
 
   .da-card-avatar > :global(img) {

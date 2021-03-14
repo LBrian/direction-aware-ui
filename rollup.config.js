@@ -1,9 +1,9 @@
-import copy from 'rollup-plugin-copy'
+import copy from 'rollup-plugin-copy';
 import svelte from 'rollup-plugin-svelte';
-import { terser } from "rollup-plugin-terser";
+import { terser } from 'rollup-plugin-terser';
 import resolve from '@rollup/plugin-node-resolve';
 
-const glob = require("glob");
+const glob = require('glob');
 const packages = glob.sync('src/packages/*/');
 
 function getConfig(target) {
@@ -17,13 +17,23 @@ function getConfig(target) {
     },
     plugins: [
       svelte({
-        ...require('./svelte.config'),
+        preprocess: require('svelte-preprocess')({
+          ...require('./svelte-preprocess.config'),
+          // Temporary workaround for Rollup + Svelte Custom Element bundle issue
+          replace: [
+            ['<ProgressiveImg', '<progressive-img'],
+            [
+              "import ProgressiveImg from '../ProgressiveImg.svelte';",
+              "import '../ProgressiveImg.svelte';"
+            ]
+          ]
+        }),
         compilerOptions: {
           customElement: true
         }
       }),
       resolve({ browser: true }),
-      terser(),
+      // terser(),
       copy({
         targets: [
           { src: `${target}index.d.ts`, dest: targetDir },
@@ -31,7 +41,7 @@ function getConfig(target) {
         ]
       })
     ]
-  }
+  };
 }
 
-export default packages.map(path => getConfig(path))
+export default packages.map((path) => getConfig(path));
