@@ -17,17 +17,7 @@ function getConfig(target) {
     },
     plugins: [
       svelte({
-        preprocess: require('svelte-preprocess')({
-          ...require('./svelte-preprocess.config'),
-          // Temporary workaround for Rollup + Svelte Custom Element bundle issue
-          replace: [
-            ['<ProgressiveImg', '<progressive-img'],
-            [
-              "import ProgressiveImg from '../ProgressiveImg.svelte';",
-              "import '../ProgressiveImg.svelte';"
-            ]
-          ]
-        }),
+        ...require('./svelte.config'),
         compilerOptions: {
           customElement: true
         }

@@ -6,7 +6,7 @@
    * @component
    */
   import { onMount } from 'svelte';
-  import ProgressiveImg from '../ProgressiveImg.svelte';
+  import '../ProgressiveImg.svelte';
 
   let cardRef: HTMLElement;
   let containerRef: HTMLElement;
@@ -120,7 +120,7 @@
     class:top-space={!mediaSrc || (avatarSrc && layout === 'figure')}
   >
     {#if mediaSrc}
-      <ProgressiveImg
+      <progressive-img
         alt={mediaAlt}
         src={mediaSrc}
         class="da-card-media"
@@ -129,7 +129,7 @@
     {/if}
     {#if avatarSrc}
       <figure class="da-card-avatar">
-        <ProgressiveImg alt={avatarAlt} src={avatarSrc} resolution="80x80" />
+        <progressive-img alt={avatarAlt} src={avatarSrc} resolution="80x80" />
       </figure>
     {/if}
     <slot>
