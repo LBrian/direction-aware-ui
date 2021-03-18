@@ -46,6 +46,6 @@
   }
   .App-logo {
     height: 36vmin;
-    @apply animate-pulse mb-12 pointer-events-none;
+    @apply mb-12 pointer-events-none;
   }
 </style>
