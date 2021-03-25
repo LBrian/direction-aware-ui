@@ -2,10 +2,17 @@ module.exports = {
   purge: ['./src/**/*.svelte'],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {}
+    extend: {
+      colors: require('daisyui/colors')
+    }
   },
   variants: {
     extend: {}
   },
-  plugins: []
+  plugins: [require('daisyui')],
+  daisyui: {
+    styled: true,
+    themes: false,
+    rtl: false
+  }
 };

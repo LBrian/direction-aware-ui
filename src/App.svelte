@@ -21,6 +21,26 @@
       </a>
     </p>
   </DaCard>
+  <DaCard
+    mediaSrc="/logo.svg"
+    mediaAlt="svelte-avatar"
+    avatarSrc="/logo.svg"
+    avatarAlt="svelte-avatar"
+    title="Svelte Avatar"
+    mediaPlaceholderRes="800x600"
+    description="This is figure layout of DaCard"
+  />
+  <div>
+    <DaCard
+      width="600px"
+      mediaSrc="/logo.svg"
+      mediaAlt="svelte-figure"
+      layout="figure"
+      title="Svelte Figure"
+      mediaPlaceholderRes="800x600"
+      description="This is figure layout of DaCard"
+    />
+  </div>
 </div>
 
 <style type="text/postcss">
@@ -28,11 +48,16 @@
     @apply m-0;
     font-family: Arial, Helvetica, sans-serif;
   }
+
+  :global(html) {
+    @apply bg-base-content;
+  }
+
   .App {
-    @apply text-center text-xl;
+    @apply text-center text-xl my-20;
   }
   .App code {
-    @apply bg-red-200 px-1 py-2 rounded font-bold;
+    @apply bg-secondary px-1 py-2 rounded font-bold;
   }
   .App p {
     @apply m-2;
@@ -42,7 +67,7 @@
     @apply bg-white text-black flex flex-col items-center justify-center min-h-screen;
   }
   .App-link {
-    @apply text-red-600;
+    @apply text-primary;
   }
   .App-logo {
     height: 36vmin;

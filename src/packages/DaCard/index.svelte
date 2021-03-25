@@ -22,11 +22,11 @@
   /**
    * Text color (optional)
    */
-  export let color = 'inherit';
+  export let color = '#fff';
   /**
    * Background color (optional)
    */
-  export let bgColor = '#fff';
+  export let bgColor = '';
 
   /**
    * Vertical rotation degree based on cursor position (optional)
@@ -53,7 +53,7 @@
   /**
    * Avatar image border color (optional)
    */
-  export let avatarBrdColor = '#eee';
+  export let avatarBrdColor = 'rgba(255, 255, 255, 0.1)';
   /**
    * Avatar img alt (optional)
    */
@@ -94,7 +94,7 @@
     };
 
     // card css variables
-    cardRef.style.setProperty('--da-card-bg-color', bgColor);
+    bgColor && cardRef.style.setProperty('--da-card-bg-color', bgColor);
 
     // container css variables
     color && containerRef.style.setProperty('--da-card-color', color);
@@ -115,6 +115,7 @@
   <article
     class="da-card"
     bind:this={cardRef}
+    class:transparent={!bgColor}
     class:hide-overflow={mediaSrc}
     class:figure={layout === 'figure'}
     class:top-space={!mediaSrc || (avatarSrc && layout === 'figure')}
@@ -147,7 +148,7 @@
   </article>
 </article>
 
-<style type="postcss">
+<style lang="postcss" scoped>
   .da-card-container {
     @apply inline-block;
     color: var(--da-card-color);
@@ -155,9 +156,13 @@
   }
 
   .da-card {
-    @apply flex flex-col items-center leading-normal rounded-xl mx-2 mb-2 duration-200 transition-transform ease-out shadow-2xl relative;
-    background-color: var(--da-card-bg-color);
+    @apply flex flex-col items-center leading-normal rounded-xl mx-2 mb-2 duration-200 transition-transform ease-out relative shadow-2xl;
     width: var(--da-card-width);
+    background-color: var(--da-card-bg-color);
+  }
+
+  .da-card.transparent {
+    @apply glass;
   }
 
   .da-card.figure {

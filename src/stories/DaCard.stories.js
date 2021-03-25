@@ -42,14 +42,8 @@ const Template = (props) => ({
 
 export const Avatar = Template.bind({});
 Avatar.args = {
-  rotateX: 10,
-  rotateY: 10,
-  color: '#444',
   width: '350px',
-  bgColor: '#fff',
   perspective: '600px',
-  avatarBrdWidth: '1rem',
-  avatarBrdColor: '#eee',
   title: 'Da-Card',
   avatarAlt: 'Da-Card',
   avatarSrc: 'https://brianypliu.com/assets/images/avatar.png',
@@ -59,14 +53,8 @@ Avatar.args = {
 
 export const Media = Template.bind({});
 Media.args = {
-  rotateX: 10,
-  rotateY: 10,
-  color: '#444',
   width: '350px',
-  bgColor: '#fff',
   perspective: '600px',
-  avatarBrdWidth: '1rem',
-  avatarBrdColor: '#eee',
   title: 'Da-Card',
   avatarAlt: 'Da-Card',
   mediaPlaceholderRes: '350x233',

@@ -6,7 +6,7 @@ module.exports = {
       script: 'typescript'
     },
     postcss: {
-      plugins: [require('@tailwindcss/jit')(), require('autoprefixer')()]
+      plugins: [require('tailwindcss')(), require('autoprefixer')()]
     },
     replace:
       process.env.npm_lifecycle_event !== 'build'

@@ -12,15 +12,14 @@ describe('<DaCard>', () => {
     const cardStyle = card?.getAttribute('style');
 
     expect(document.body.contains(cardContainer));
-    expect(cardContainerStyle).contain('--da-card-color: inherit;');
+    expect(cardContainerStyle).contain('--da-card-color:#fff;');
     expect(cardContainerStyle).contain('--da-card-width:350px;');
     expect(cardContainerStyle).contain('--da-card-perspective:600px;');
     expect(cardContainerStyle).contain('--da-card-avatar-brd-width:1rem;');
-    expect(cardContainerStyle).contain('--da-card-avatar-brd-color:#eee;');
+    expect(cardContainerStyle).contain('--da-card-avatar-brd-color:rgba(255, 255, 255, 0.1);');
 
     expect(cardContainer?.contains(card));
     expect(card?.classList.contains('top-space'));
-    expect(cardStyle).contain('--da-card-bg-color:#fff;');
   });
 
   it("render <DaCard layout='figure'>", () => {
