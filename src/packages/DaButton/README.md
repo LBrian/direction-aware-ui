@@ -7,4 +7,12 @@
 
 ## Playground & Doc
 
-https://da-ui.brianypliu.com/?path=/story/button
+https://da-ui.brianypliu.com/?path=/story/dabutton
+
+## Install
+
+```
+npm i @da-ui/button --save
+```
+
+## Usage

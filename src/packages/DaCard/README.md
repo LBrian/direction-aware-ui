@@ -7,4 +7,39 @@
 
 ## Playground & Doc
 
-https://da-ui.brianypliu.com/?path=/story/card
+https://da-ui.brianypliu.com/?path=/story/dacard
+
+## Install
+
+```
+npm i @da-ui/card --save
+```
+
+## Usage
+
+### Default
+
+```
+import "@da-ui/card";
+
+<da-card
+    mediaSrc="/logo.svg"
+    mediaAlt="svelte-avatar"
+    avatarSrc="/logo.svg"
+    avatarAlt="svelte-avatar"
+    title="Svelte Avatar"
+    mediaPlaceholderRes="800x600"
+    description="This is figure layout of DaCard" />
+```
+
+### Custom content
+
+```
+<da-card mediaSrc="/logo.svg" mediaAlt="Svelte">
+    <p>Edit <code>src/App.svelte</code> and save to reload.</p>
+    <p>Page has been open for <code>{count}</code> seconds.</p>
+    <p>
+        <DaButton color="accent">Learn Svelte</DaButton>
+    </p>
+</da-card>
+```
