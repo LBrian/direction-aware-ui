@@ -1,5 +1,5 @@
 {
-  "name": "@da-ui/dacard",
+  "name": "@da-ui/card",
   "version": "0.1.7",
   "description": "Direction-aware UI card component",
   "main": "index.js",
@@ -8,7 +8,7 @@
     "index.d.ts",
     "README.md"
   ],
-  "homepage": "https://da-ui.brianypliu.com/?path=/story/direction-aware-ui-dacard--plain",
+  "homepage": "https://da-ui.brianypliu.com/?path=/story/card",
   "scripts": {},
   "repository": {
     "type": "git",
