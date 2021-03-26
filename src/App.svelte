@@ -1,6 +1,7 @@
 <script lang="typescript">
   import { onMount } from 'svelte';
   import DaCard from './packages/DaCard/index.svelte';
+  import DaButton from './packages/DaButton/index.svelte';
 
   let count: number = 0;
   onMount(() => {
@@ -16,9 +17,7 @@
     <p>Edit <code>src/App.svelte</code> and save to reload.</p>
     <p>Page has been open for <code>{count}</code> seconds.</p>
     <p>
-      <a class="App-link" href="https://svelte.dev" target="_blank" rel="noopener noreferrer">
-        Learn Svelte
-      </a>
+      <DaButton color="accent">Learn Svelte</DaButton>
     </p>
   </DaCard>
   <DaCard

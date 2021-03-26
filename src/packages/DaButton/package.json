@@ -1,0 +1,27 @@
+{
+  "name": "@da-ui/button",
+  "version": "0.1.0",
+  "description": "Direction-aware UI Button component",
+  "main": "index.js",
+  "svelte": "./index.svelte",
+  "files": [
+    "index.d.ts",
+    "README.md"
+  ],
+  "homepage": "https://da-ui.brianypliu.com/?path=/story/button",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LBrian/direction-aware-ui.git"
+  },
+  "author": {
+    "name": "Brian YP Liu",
+    "email": "ralphbliu@gmail.com",
+    "url": "https://brianypliu.com/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LBrian/direction-aware-ui/issues"
+  },
+  "types": "index.d.ts"
+}
