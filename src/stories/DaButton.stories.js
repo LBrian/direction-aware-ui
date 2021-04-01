@@ -7,13 +7,13 @@ export default {
     shape: {
       control: {
         type: 'select',
-        options: ['', 'circle', 'square']
+        options: ['circle', 'square']
       }
     },
     size: {
       control: {
         type: 'select',
-        options: ['', 'lg', 'sm', 'xs']
+        options: ['lg', 'sm', 'xs']
       }
     },
     color: {

@@ -1,7 +1,6 @@
-export type Shape = '' | 'circle' | 'square';
-export type Size = '' | 'lg' | 'sm' | 'xs';
+export type Shape = 'circle' | 'square';
+export type Size = 'lg' | 'sm' | 'xs';
 export type Color =
-  | ''
   | 'primary'
   | 'secondary'
   | 'accent'

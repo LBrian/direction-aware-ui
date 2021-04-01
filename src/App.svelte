@@ -17,7 +17,7 @@
     <p>Edit <code>src/App.svelte</code> and save to reload.</p>
     <p>Page has been open for <code>{count}</code> seconds.</p>
     <p>
-      <DaButton color="accent">Learn Svelte</DaButton>
+      <DaButton color="transparent">Learn Svelte</DaButton>
     </p>
   </DaCard>
   <DaCard

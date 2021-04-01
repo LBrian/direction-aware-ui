@@ -9,28 +9,24 @@
   import type { Size, Shape, Color } from './index';
 
   /**
-   * Color
+   * primary | secondary | accent | ghost | link | info | success | warning | error | transparent
+   * see https://daisyui.netlify.app/components/button
+   *
    */
-  export let color: Color = '';
+  export let color: Color | undefined = undefined;
   /**
-   * size
+   * xs | sm | lg |
    */
-  export let size: Size = '';
+  export let size: Size | undefined = undefined;
   /**
-   * shape
+   * circle | square
    */
-  export let shape: Shape = '';
+  export let shape: Shape | undefined = undefined;
   /**
-   * block
+   * Display as block
    */
   export let block = false;
-  /**
-   * outline
-   */
   export let outline = false;
-  /**
-   * loading
-   */
   export let loading = false;
 </script>
 
@@ -59,6 +55,12 @@
 </button>
 
 <style lang="postcss" scoped>
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
   .da-button {
     @apply btn;
   }
@@ -117,5 +119,9 @@
 
   .outline {
     @apply btn-outline;
+  }
+
+  .loading::before {
+    @apply border-solid;
   }
 </style>
