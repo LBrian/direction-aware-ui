@@ -57,7 +57,6 @@ Media.args = {
   perspective: '600px',
   title: 'Da-Card',
   avatarAlt: 'Da-Card',
-  mediaPlaceholderRes: '350x233',
   mediaSrc:
     'https://i.picsum.photos/id/119/3264/2176.jpg?hmac=PYRYBOGQhlUm6wS94EkpN8dTIC7-2GniC3pqOt6CpNU',
   avatarSrc: 'https://brianypliu.com/assets/images/avatar.png',
@@ -77,7 +76,6 @@ FigureLayout.args = {
   avatarBrdWidth: '1rem',
   avatarBrdColor: '#eee',
   title: 'Da-Card',
-  mediaPlaceholderRes: '600x400',
   mediaSrc:
     'https://i.picsum.photos/id/119/3264/2176.jpg?hmac=PYRYBOGQhlUm6wS94EkpN8dTIC7-2GniC3pqOt6CpNU',
   description:
@@ -96,7 +94,6 @@ FigureLayoutAvatar.args = {
   avatarBrdWidth: '1rem',
   avatarBrdColor: '#eee',
   title: 'Da-Card',
-  mediaPlaceholderRes: '600x400',
   avatarSrc: 'https://brianypliu.com/assets/images/avatar.png',
   mediaSrc:
     'https://i.picsum.photos/id/119/3264/2176.jpg?hmac=PYRYBOGQhlUm6wS94EkpN8dTIC7-2GniC3pqOt6CpNU',

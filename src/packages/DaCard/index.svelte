@@ -6,7 +6,6 @@
    * @component
    */
   import { onMount } from 'svelte';
-  import '../ProgressiveImg.svelte';
 
   let cardRef: HTMLElement;
   let containerRef: HTMLElement;
@@ -71,11 +70,6 @@
    */
   export let mediaAlt = 'DaCard media image';
   /**
-   * Meida placeholder resolution
-   * @required
-   */
-  export let mediaPlaceholderRes = '350x350';
-  /**
    * Card layout styles
    */
   export let layout = '';
@@ -121,16 +115,11 @@
     class:top-space={!mediaSrc || (avatarSrc && layout === 'figure')}
   >
     {#if mediaSrc}
-      <progressive-img
-        alt={mediaAlt}
-        src={mediaSrc}
-        class="da-card-media"
-        resolution={mediaPlaceholderRes}
-      />
+      <img alt={mediaAlt} src={mediaSrc} class="da-card-media" />
     {/if}
     {#if avatarSrc}
       <figure class="da-card-avatar">
-        <progressive-img alt={avatarAlt} src={avatarSrc} resolution="80x80" />
+        <img alt={avatarAlt} src={avatarSrc} />
       </figure>
     {/if}
     <slot>
@@ -159,6 +148,10 @@
     @apply flex flex-col items-center leading-normal rounded-xl mx-2 mb-2 duration-200 transition-transform ease-out relative shadow-2xl;
     width: var(--da-card-width);
     background-color: var(--da-card-bg-color);
+  }
+
+  .da-card img {
+    @apply w-full h-full object-cover;
   }
 
   .da-card.transparent {
@@ -203,7 +196,7 @@
     border: var(--da-card-avatar-brd-width) solid var(--da-card-avatar-brd-color);
   }
 
-  .da-card-avatar > :global(img) {
+  .da-card-avatar > img {
     border-radius: inherit;
   }
 
