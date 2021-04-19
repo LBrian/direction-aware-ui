@@ -1,6 +1,6 @@
 {
   "name": "@da-ui/button",
-  "version": "0.1.9",
+  "version": "0.1.11",
   "description": "Direction-aware UI Button component",
   "main": "index.js",
   "svelte": "./index.svelte",
