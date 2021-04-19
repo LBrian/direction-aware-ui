@@ -14,32 +14,30 @@ interface DaCard {
   mediaSrc?: string;
   mediaAlt?: string;
   mediaPlaceholderRes?: string;
-  layout?: "figure";
+  layout?: 'figure';
+  children?: unknown;
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    "da-card": DaCard;
+    'da-card': DaCard;
   }
 }
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      "da-card": DaCard;
+      'da-card': DaCard;
     }
   }
 }
 declare namespace svelte.JSX {
   interface IntrinsicElements {
-    "da-card": DaCard;
+    'da-card': DaCard;
   }
 }
 
-//@ts-ignore
-declare module "preact" {
-  namespace JSX {
-    interface IntrinsicElements {
-      "da-card": DaCard;
-    }
+declare namespace preact.JSX {
+  interface IntrinsicElements {
+    'da-card': DaCard;
   }
 }

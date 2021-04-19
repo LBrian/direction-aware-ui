@@ -36,11 +36,8 @@ declare namespace svelte.JSX {
   }
 }
 
-//@ts-ignore
-declare module 'preact' {
-  namespace JSX {
-    interface IntrinsicElements {
-      'da-button': DaButton;
-    }
+declare namespace preact.JSX {
+  interface IntrinsicElements {
+    'da-button': DaButton;
   }
 }
