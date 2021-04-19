@@ -139,14 +139,14 @@
 
 <style lang="postcss" scoped>
   .da-card-container {
-    @apply inline-block;
+    @apply inline-block w-full;
     color: var(--da-card-color);
+    max-width: var(--da-card-width);
     perspective: var(--da-card-perspective);
   }
 
   .da-card {
     @apply flex flex-col items-center leading-normal rounded-xl mx-2 mb-2 duration-200 transition-transform ease-out relative shadow-2xl;
-    width: var(--da-card-width);
     background-color: var(--da-card-bg-color);
   }
 
