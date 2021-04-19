@@ -1,6 +1,6 @@
 {
   "name": "@da-ui/card",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "description": "Direction-aware UI card component",
   "main": "index.js",
   "svelte": "./index.svelte",
